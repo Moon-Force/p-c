@@ -11,15 +11,16 @@ def geturl():
     current_month = now.month
     base_url = 'https://lishi.tianqi.com/'
     urls = {}
-    years = ['2023', '2024']
+    years = ['2023','2024']
     months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     for key, value in csvurls_dict.items():
         tempurl = base_url + value
         for year in years:
             if int(year) == now.year:
                 for month in range(1, current_month + 1):
+                    formatted_month = f"{month:02d}"
                     url = f"{tempurl}{year}{month:02d}.html"
-                    tempkey = key + str(year) + "年" + str(month) + "月"
+                    tempkey = key + str(year) + "年" + str(formatted_month) + "月"
                     urls[tempkey] = url
             else:
                 for month in months:
@@ -45,6 +46,7 @@ def csvread():
         # 遍历CSV文件中的每一行
         for row in reader:
             # 假设URL在第二列，索引为1
-            url_dict[row[0]] = row[1]
+            if row[2] == '1':
+                url_dict[row[0]] = row[1]
     print(url_dict)
     return url_dict

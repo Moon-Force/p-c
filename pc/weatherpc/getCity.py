@@ -55,10 +55,10 @@ def getCity():
     with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         # 写入标题行（如果有标题的话）
-        writer.writerow(['城市名称', '拼音'])
+        writer.writerow(['城市名称', '拼音','选取'])
         # 写入字典内容
         for key, value in city_dict.items():
-            writer.writerow([key, value])
+            writer.writerow([key, value,'1'])
     print(f'数据已保存到 {csv_file}')
     return city_dict
 

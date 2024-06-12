@@ -6,16 +6,14 @@ import time
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup as bs
-from fake_useragent import UserAgent
 from pandas import Series, DataFrame
 
 from getUrls import geturl
 
 # 设置请求头
-ua = UserAgent()
 headers = {
 
-    'User-Agent': ua.random,
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
 
     'Host': 'lishi.tianqi.com',
 
